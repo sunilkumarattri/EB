@@ -56,6 +56,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -166,6 +167,63 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\EB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>EB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagrams_Result.cs">
+      <DependentUpon>EB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>EB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TBL_BUSINESS.cs">
+      <DependentUpon>EB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TBL_CUSTOMER.cs">
+      <DependentUpon>EB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TBL_CUST_ORDER.cs">
+      <DependentUpon>EB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TBL_DURATION_TYPE.cs">
+      <DependentUpon>EB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TBL_EMPLOYEE.cs">
+      <DependentUpon>EB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TBL_LOCATION.cs">
+      <DependentUpon>EB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TBL_PAYMENT.cs">
+      <DependentUpon>EB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TBL_SERVICES.cs">
+      <DependentUpon>EB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TBL_SERVICE_CATEGORIES.cs">
+      <DependentUpon>EB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\X_SERVICE_EMPLOYEE.cs">
+      <DependentUpon>EB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\X_SERVICE_LOCATION.cs">
+      <DependentUpon>EB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -177,6 +235,16 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Models\EB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EB.edmx</DependentUpon>
+      <LastGenOutput>EB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\EB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EB.edmx</DependentUpon>
+      <LastGenOutput>EB.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
@@ -198,6 +266,13 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <EntityDeploy Include="Models\EB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\EB.edmx.diagram">
+      <DependentUpon>EB.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -220,7 +295,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -250,6 +324,9 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

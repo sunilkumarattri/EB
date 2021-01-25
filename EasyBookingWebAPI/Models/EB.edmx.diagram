@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="85af3d619bb543dc8664c19d9814b9c4" Name="Diagram1">
+        <EntityTypeShape EntityType="EasyBookingModel.sysdiagram" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyBookingModel.TBL_BUSINESS" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyBookingModel.TBL_CUST_ORDER" Width="1.5" PointX="5.25" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyBookingModel.TBL_CUSTOMER" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyBookingModel.TBL_DURATION_TYPE" Width="1.5" PointX="1.5" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyBookingModel.TBL_EMPLOYEE" Width="1.5" PointX="3" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyBookingModel.TBL_LOCATION" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyBookingModel.TBL_PAYMENT" Width="1.5" PointX="7.5" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyBookingModel.TBL_SERVICE_CATEGORIES" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyBookingModel.TBL_SERVICES" Width="1.5" PointX="0.75" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyBookingModel.X_SERVICE_EMPLOYEE" Width="1.5" PointX="5.25" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyBookingModel.X_SERVICE_LOCATION" Width="1.5" PointX="3" PointY="10.375" IsExpanded="true" />
+        <AssociationConnector Association="EasyBookingModel.FK__TBL_BUSIN__LOCAT__2EA5EC27" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyBookingModel.FK__TBL_CUST___CUSTO__2610A626" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyBookingModel.FK__TBL_CUST___EMP_I__28ED12D1" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyBookingModel.FK__TBL_CUST___LOCAT__27F8EE98" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyBookingModel.FK__TBL_CUST___SERVI__2704CA5F" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyBookingModel.FK__TBL_PAYME__ORDER__2BC97F7C" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyBookingModel.FK__TBL_SERVI__DURAT__1E6F845E" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyBookingModel.FK__TBL_EMPLO__LOCAT__2334397B" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyBookingModel.FK__X_SERVICE__EMP_I__3552E9B6" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyBookingModel.FK__X_SERVICE__LOCAT__318258D2" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyBookingModel.FK__X_SERVICE__SERVI__32767D0B" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyBookingModel.FK__X_SERVICE__SERVI__36470DEF" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

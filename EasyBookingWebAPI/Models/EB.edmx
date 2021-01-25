@@ -1,0 +1,1239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="EasyBookingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TBL_BUSINESS">
+          <Key>
+            <PropertyRef Name="BUSINESS_ID" />
+          </Key>
+          <Property Name="BUSINESS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BUSINESS_NAME" Type="varchar" MaxLength="500" />
+          <Property Name="BUSINESS_ADDRESS" Type="varchar" MaxLength="500" />
+          <Property Name="BUSINESS_TYPE" Type="varchar" MaxLength="50" />
+          <Property Name="REG_NO" Type="varchar" MaxLength="200" />
+          <Property Name="OWNER_NAME" Type="varchar" MaxLength="500" />
+          <Property Name="LOCATION_ID" Type="int" />
+          <Property Name="CREATED_DATE" Type="datetime" />
+          <Property Name="MODIFIED_DATE" Type="datetime" />
+          <Property Name="CREATED_BY_ID" Type="int" />
+          <Property Name="MODIFIED_BY_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="TBL_CUST_ORDER">
+          <Key>
+            <PropertyRef Name="CUST_ORDER_ID" />
+          </Key>
+          <Property Name="CUST_ORDER_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SCHEDULE_DATE" Type="datetime" />
+          <Property Name="TIME_FROM" Type="time" Precision="7" />
+          <Property Name="TIME_TO" Type="time" Precision="7" />
+          <Property Name="CUSTOMER_ID" Type="int" />
+          <Property Name="SERVICE_ID" Type="int" />
+          <Property Name="EMP_ID" Type="int" />
+          <Property Name="LOCATION_ID" Type="int" />
+          <Property Name="CREATED_DATE" Type="datetime" />
+          <Property Name="MODIFIED_DATE" Type="datetime" />
+          <Property Name="CREATED_BY_ID" Type="int" />
+          <Property Name="MODIFIED_BY_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="TBL_CUSTOMER">
+          <Key>
+            <PropertyRef Name="CUSTOMER_ID" />
+          </Key>
+          <Property Name="CUSTOMER_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CUST_NAME" Type="varchar" MaxLength="200" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="500" />
+          <Property Name="PHONE" Type="varchar" MaxLength="50" />
+          <Property Name="CUST_ADDRESS" Type="varchar" MaxLength="500" />
+          <Property Name="CREATED_DATE" Type="datetime" />
+          <Property Name="MODIFIED_DATE" Type="datetime" />
+          <Property Name="CREATED_BY_ID" Type="int" />
+          <Property Name="MODIFIED_BY_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="TBL_DURATION_TYPE">
+          <Key>
+            <PropertyRef Name="DURATION_TYPE_ID" />
+          </Key>
+          <Property Name="DURATION_TYPE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DURATION" Type="varchar" MaxLength="500" />
+          <Property Name="CREATED_DATE" Type="datetime" />
+          <Property Name="MODIFIED_DATE" Type="datetime" />
+          <Property Name="CREATED_BY_ID" Type="int" />
+          <Property Name="MODIFIED_BY_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="TBL_EMPLOYEE">
+          <Key>
+            <PropertyRef Name="EMP_ID" />
+          </Key>
+          <Property Name="EMP_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EMP_NAME" Type="varchar" MaxLength="500" />
+          <Property Name="DEPARTMENT" Type="varchar" MaxLength="500" />
+          <Property Name="DOJ" Type="datetime" />
+          <Property Name="GENDER" Type="int" />
+          <Property Name="LOCATION_ID" Type="int" />
+          <Property Name="CREATED_DATE" Type="datetime" />
+          <Property Name="MODIFIED_DATE" Type="datetime" />
+          <Property Name="CREATED_BY_ID" Type="int" />
+          <Property Name="MODIFIED_BY_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="TBL_LOCATION">
+          <Key>
+            <PropertyRef Name="LOCATION_ID" />
+          </Key>
+          <Property Name="LOCATION_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LOCATION_NAME" Type="varchar" MaxLength="200" />
+          <Property Name="CREATED_DATE" Type="datetime" />
+          <Property Name="MODIFIED_DATE" Type="datetime" />
+          <Property Name="CREATED_BY_ID" Type="int" />
+          <Property Name="MODIFIED_BY_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="TBL_PAYMENT">
+          <Key>
+            <PropertyRef Name="PAYMENT_ID" />
+          </Key>
+          <Property Name="PAYMENT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ORDER_ID" Type="int" />
+          <Property Name="PAY_DETAILS" Type="varchar" MaxLength="500" />
+          <Property Name="CREATED_DATE" Type="datetime" />
+          <Property Name="MODIFIED_DATE" Type="datetime" />
+          <Property Name="CREATED_BY_ID" Type="int" />
+          <Property Name="MODIFIED_BY_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="TBL_SERVICE_CATEGORIES">
+          <Key>
+            <PropertyRef Name="SERVICE_CATEGORY_ID" />
+          </Key>
+          <Property Name="SERVICE_CATEGORY_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CATEGORY_TITLE" Type="varchar" MaxLength="500" />
+          <Property Name="CREATED_DATE" Type="datetime" />
+          <Property Name="MODIFIED_DATE" Type="datetime" />
+          <Property Name="CREATED_BY_ID" Type="int" />
+          <Property Name="MODIFIED_BY_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="TBL_SERVICES">
+          <Key>
+            <PropertyRef Name="SERVICE_ID" />
+          </Key>
+          <Property Name="SERVICE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SERVICE_NAME" Type="varchar" MaxLength="500" />
+          <Property Name="RATE_PER_UNIT" Type="decimal" Precision="16" Scale="2" />
+          <Property Name="QUANTITY" Type="decimal" Precision="16" Scale="2" />
+          <Property Name="DURATION" Type="int" />
+          <Property Name="DURATION_TYPE" Type="int" />
+          <Property Name="CREATED_DATE" Type="datetime" />
+          <Property Name="MODIFIED_DATE" Type="datetime" />
+          <Property Name="CREATED_BY_ID" Type="int" />
+          <Property Name="MODIFIED_BY_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="X_SERVICE_EMPLOYEE">
+          <Key>
+            <PropertyRef Name="X_SERVICE_EMP_ID" />
+          </Key>
+          <Property Name="X_SERVICE_EMP_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SERVICE_ID" Type="int" />
+          <Property Name="EMP_ID" Type="int" />
+          <Property Name="CREATED_DATE" Type="datetime" />
+          <Property Name="MODIFIED_DATE" Type="datetime" />
+          <Property Name="CREATED_BY_ID" Type="int" />
+          <Property Name="MODIFIED_BY_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="X_SERVICE_LOCATION">
+          <Key>
+            <PropertyRef Name="X_SERVICE_LOCATION_ID" />
+          </Key>
+          <Property Name="X_SERVICE_LOCATION_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LOCATION_ID" Type="int" />
+          <Property Name="SERVICE_ID" Type="int" />
+          <Property Name="CREATED_DATE" Type="datetime" />
+          <Property Name="MODIFIED_DATE" Type="datetime" />
+          <Property Name="CREATED_BY_ID" Type="int" />
+          <Property Name="MODIFIED_BY_ID" Type="int" />
+        </EntityType>
+        <Association Name="FK__TBL_BUSIN__LOCAT__2EA5EC27">
+          <End Role="TBL_LOCATION" Type="Self.TBL_LOCATION" Multiplicity="0..1" />
+          <End Role="TBL_BUSINESS" Type="Self.TBL_BUSINESS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_LOCATION">
+              <PropertyRef Name="LOCATION_ID" />
+            </Principal>
+            <Dependent Role="TBL_BUSINESS">
+              <PropertyRef Name="LOCATION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_CUST___CUSTO__2610A626">
+          <End Role="TBL_CUSTOMER" Type="Self.TBL_CUSTOMER" Multiplicity="0..1" />
+          <End Role="TBL_CUST_ORDER" Type="Self.TBL_CUST_ORDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_CUSTOMER">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Principal>
+            <Dependent Role="TBL_CUST_ORDER">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_CUST___EMP_I__28ED12D1">
+          <End Role="TBL_EMPLOYEE" Type="Self.TBL_EMPLOYEE" Multiplicity="0..1" />
+          <End Role="TBL_CUST_ORDER" Type="Self.TBL_CUST_ORDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_EMPLOYEE">
+              <PropertyRef Name="EMP_ID" />
+            </Principal>
+            <Dependent Role="TBL_CUST_ORDER">
+              <PropertyRef Name="EMP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_CUST___LOCAT__27F8EE98">
+          <End Role="TBL_LOCATION" Type="Self.TBL_LOCATION" Multiplicity="0..1" />
+          <End Role="TBL_CUST_ORDER" Type="Self.TBL_CUST_ORDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_LOCATION">
+              <PropertyRef Name="LOCATION_ID" />
+            </Principal>
+            <Dependent Role="TBL_CUST_ORDER">
+              <PropertyRef Name="LOCATION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_CUST___SERVI__2704CA5F">
+          <End Role="TBL_SERVICES" Type="Self.TBL_SERVICES" Multiplicity="0..1" />
+          <End Role="TBL_CUST_ORDER" Type="Self.TBL_CUST_ORDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_SERVICES">
+              <PropertyRef Name="SERVICE_ID" />
+            </Principal>
+            <Dependent Role="TBL_CUST_ORDER">
+              <PropertyRef Name="SERVICE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_EMPLO__LOCAT__2334397B">
+          <End Role="TBL_LOCATION" Type="Self.TBL_LOCATION" Multiplicity="0..1" />
+          <End Role="TBL_EMPLOYEE" Type="Self.TBL_EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_LOCATION">
+              <PropertyRef Name="LOCATION_ID" />
+            </Principal>
+            <Dependent Role="TBL_EMPLOYEE">
+              <PropertyRef Name="LOCATION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_PAYME__ORDER__2BC97F7C">
+          <End Role="TBL_CUST_ORDER" Type="Self.TBL_CUST_ORDER" Multiplicity="0..1" />
+          <End Role="TBL_PAYMENT" Type="Self.TBL_PAYMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_CUST_ORDER">
+              <PropertyRef Name="CUST_ORDER_ID" />
+            </Principal>
+            <Dependent Role="TBL_PAYMENT">
+              <PropertyRef Name="ORDER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_SERVI__DURAT__1E6F845E">
+          <End Role="TBL_DURATION_TYPE" Type="Self.TBL_DURATION_TYPE" Multiplicity="0..1" />
+          <End Role="TBL_SERVICES" Type="Self.TBL_SERVICES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_DURATION_TYPE">
+              <PropertyRef Name="DURATION_TYPE_ID" />
+            </Principal>
+            <Dependent Role="TBL_SERVICES">
+              <PropertyRef Name="DURATION_TYPE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__X_SERVICE__EMP_I__3552E9B6">
+          <End Role="TBL_EMPLOYEE" Type="Self.TBL_EMPLOYEE" Multiplicity="0..1" />
+          <End Role="X_SERVICE_EMPLOYEE" Type="Self.X_SERVICE_EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_EMPLOYEE">
+              <PropertyRef Name="EMP_ID" />
+            </Principal>
+            <Dependent Role="X_SERVICE_EMPLOYEE">
+              <PropertyRef Name="EMP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__X_SERVICE__LOCAT__318258D2">
+          <End Role="TBL_LOCATION" Type="Self.TBL_LOCATION" Multiplicity="0..1" />
+          <End Role="X_SERVICE_LOCATION" Type="Self.X_SERVICE_LOCATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_LOCATION">
+              <PropertyRef Name="LOCATION_ID" />
+            </Principal>
+            <Dependent Role="X_SERVICE_LOCATION">
+              <PropertyRef Name="LOCATION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__X_SERVICE__SERVI__32767D0B">
+          <End Role="TBL_SERVICES" Type="Self.TBL_SERVICES" Multiplicity="0..1" />
+          <End Role="X_SERVICE_LOCATION" Type="Self.X_SERVICE_LOCATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_SERVICES">
+              <PropertyRef Name="SERVICE_ID" />
+            </Principal>
+            <Dependent Role="X_SERVICE_LOCATION">
+              <PropertyRef Name="SERVICE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__X_SERVICE__SERVI__36470DEF">
+          <End Role="TBL_SERVICES" Type="Self.TBL_SERVICES" Multiplicity="0..1" />
+          <End Role="X_SERVICE_EMPLOYEE" Type="Self.X_SERVICE_EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_SERVICES">
+              <PropertyRef Name="SERVICE_ID" />
+            </Principal>
+            <Dependent Role="X_SERVICE_EMPLOYEE">
+              <PropertyRef Name="SERVICE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="USP_INSERT_BUSINESS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BUSINESS_NAME" Type="varchar" Mode="In" />
+          <Parameter Name="BUSINESS_ADDRESS" Type="varchar" Mode="In" />
+          <Parameter Name="BUSINESS_TYPE" Type="varchar" Mode="In" />
+          <Parameter Name="REG_NO" Type="varchar" Mode="In" />
+          <Parameter Name="OWNER_NAME" Type="varchar" Mode="In" />
+          <Parameter Name="LOCATION_ID" Type="int" Mode="In" />
+          <Parameter Name="CREATED_DATE" Type="datetime" Mode="In" />
+          <Parameter Name="MODIFIED_DATE" Type="datetime" Mode="In" />
+          <Parameter Name="CREATED_BY_ID" Type="int" Mode="In" />
+          <Parameter Name="MODIFIED_BY_ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="USP_INSERT_CUST" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CUST_NAME" Type="varchar" Mode="In" />
+          <Parameter Name="EMAIL" Type="varchar" Mode="In" />
+          <Parameter Name="PHONE" Type="varchar" Mode="In" />
+          <Parameter Name="CUST_ADDRESS" Type="varchar" Mode="In" />
+          <Parameter Name="CREATED_DATE" Type="datetime" Mode="In" />
+          <Parameter Name="MODIFIED_DATE" Type="datetime" Mode="In" />
+          <Parameter Name="CREATED_BY_ID" Type="int" Mode="In" />
+          <Parameter Name="MODIFIED_BY_ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="USP_INSERT_CUST_ORDERS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SCHEDULE_DATE" Type="datetime" Mode="In" />
+          <Parameter Name="TIME_FROM" Type="time" Mode="In" />
+          <Parameter Name="TIME_TO" Type="time" Mode="In" />
+          <Parameter Name="CUSTOMER_ID" Type="int" Mode="In" />
+          <Parameter Name="SERVICE_ID" Type="int" Mode="In" />
+          <Parameter Name="EMP_ID" Type="int" Mode="In" />
+          <Parameter Name="LOCATION_ID" Type="int" Mode="In" />
+          <Parameter Name="CREATED_DATE" Type="datetime" Mode="In" />
+          <Parameter Name="MODIFIED_DATE" Type="datetime" Mode="In" />
+          <Parameter Name="CREATED_BY_ID" Type="int" Mode="In" />
+          <Parameter Name="MODIFIED_BY_ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="USP_INSERT_EMPLOYEE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="EMP_NAME" Type="varchar" Mode="In" />
+          <Parameter Name="DEPARTMENT" Type="varchar" Mode="In" />
+          <Parameter Name="DOJ" Type="datetime" Mode="In" />
+          <Parameter Name="GENDER" Type="int" Mode="In" />
+          <Parameter Name="LOCATION_ID" Type="int" Mode="In" />
+          <Parameter Name="CREATED_DATE" Type="datetime" Mode="In" />
+          <Parameter Name="MODIFIED_DATE" Type="datetime" Mode="In" />
+          <Parameter Name="CREATED_BY_ID" Type="int" Mode="In" />
+          <Parameter Name="MODIFIED_BY_ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="USP_INSERT_LOCATION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="LOCATION_NAME" Type="varchar" Mode="In" />
+          <Parameter Name="CREATED_DATE" Type="datetime" Mode="In" />
+          <Parameter Name="MODIFIED_DATE" Type="datetime" Mode="In" />
+          <Parameter Name="CREATED_BY_ID" Type="int" Mode="In" />
+          <Parameter Name="MODIFIED_BY_ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="USP_INSERT_PAYMENT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ORDER_ID" Type="int" Mode="In" />
+          <Parameter Name="PAY_DETAILS" Type="int" Mode="In" />
+          <Parameter Name="CREATED_DATE" Type="datetime" Mode="In" />
+          <Parameter Name="MODIFIED_DATE" Type="datetime" Mode="In" />
+          <Parameter Name="CREATED_BY_ID" Type="int" Mode="In" />
+          <Parameter Name="MODIFIED_BY_ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="USP_INSERT_SERVICES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SERVICE_NAME" Type="varchar" Mode="In" />
+          <Parameter Name="RATE_PER_UNIT" Type="decimal" Mode="In" />
+          <Parameter Name="QUANTITY" Type="decimal" Mode="In" />
+          <Parameter Name="DURATION" Type="int" Mode="In" />
+          <Parameter Name="DURATION_TYPE" Type="int" Mode="In" />
+          <Parameter Name="CREATED_DATE" Type="datetime" Mode="In" />
+          <Parameter Name="MODIFIED_DATE" Type="datetime" Mode="In" />
+          <Parameter Name="CREATED_BY_ID" Type="int" Mode="In" />
+          <Parameter Name="MODIFIED_BY_ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="USP_INSERT_X_SERVICE_EMPLOYEE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SERVICE_ID" Type="int" Mode="In" />
+          <Parameter Name="EMP_ID" Type="int" Mode="In" />
+          <Parameter Name="CREATED_DATE" Type="datetime" Mode="In" />
+          <Parameter Name="MODIFIED_DATE" Type="datetime" Mode="In" />
+          <Parameter Name="CREATED_BY_ID" Type="int" Mode="In" />
+          <Parameter Name="MODIFIED_BY_ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="USP_INSERT_X_SERVICE_LOCATION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="LOCATION_ID" Type="int" Mode="In" />
+          <Parameter Name="SERVICE_ID" Type="int" Mode="In" />
+          <Parameter Name="CREATED_DATE" Type="datetime" Mode="In" />
+          <Parameter Name="MODIFIED_DATE" Type="datetime" Mode="In" />
+          <Parameter Name="CREATED_BY_ID" Type="int" Mode="In" />
+          <Parameter Name="MODIFIED_BY_ID" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="EasyBookingModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_BUSINESS" EntityType="Self.TBL_BUSINESS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_CUST_ORDER" EntityType="Self.TBL_CUST_ORDER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_CUSTOMER" EntityType="Self.TBL_CUSTOMER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_DURATION_TYPE" EntityType="Self.TBL_DURATION_TYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_EMPLOYEE" EntityType="Self.TBL_EMPLOYEE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_LOCATION" EntityType="Self.TBL_LOCATION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_PAYMENT" EntityType="Self.TBL_PAYMENT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_SERVICE_CATEGORIES" EntityType="Self.TBL_SERVICE_CATEGORIES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_SERVICES" EntityType="Self.TBL_SERVICES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="X_SERVICE_EMPLOYEE" EntityType="Self.X_SERVICE_EMPLOYEE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="X_SERVICE_LOCATION" EntityType="Self.X_SERVICE_LOCATION" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__TBL_BUSIN__LOCAT__2EA5EC27" Association="Self.FK__TBL_BUSIN__LOCAT__2EA5EC27">
+            <End Role="TBL_LOCATION" EntitySet="TBL_LOCATION" />
+            <End Role="TBL_BUSINESS" EntitySet="TBL_BUSINESS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_CUST___CUSTO__2610A626" Association="Self.FK__TBL_CUST___CUSTO__2610A626">
+            <End Role="TBL_CUSTOMER" EntitySet="TBL_CUSTOMER" />
+            <End Role="TBL_CUST_ORDER" EntitySet="TBL_CUST_ORDER" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_CUST___EMP_I__28ED12D1" Association="Self.FK__TBL_CUST___EMP_I__28ED12D1">
+            <End Role="TBL_EMPLOYEE" EntitySet="TBL_EMPLOYEE" />
+            <End Role="TBL_CUST_ORDER" EntitySet="TBL_CUST_ORDER" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_CUST___LOCAT__27F8EE98" Association="Self.FK__TBL_CUST___LOCAT__27F8EE98">
+            <End Role="TBL_LOCATION" EntitySet="TBL_LOCATION" />
+            <End Role="TBL_CUST_ORDER" EntitySet="TBL_CUST_ORDER" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_CUST___SERVI__2704CA5F" Association="Self.FK__TBL_CUST___SERVI__2704CA5F">
+            <End Role="TBL_SERVICES" EntitySet="TBL_SERVICES" />
+            <End Role="TBL_CUST_ORDER" EntitySet="TBL_CUST_ORDER" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_EMPLO__LOCAT__2334397B" Association="Self.FK__TBL_EMPLO__LOCAT__2334397B">
+            <End Role="TBL_LOCATION" EntitySet="TBL_LOCATION" />
+            <End Role="TBL_EMPLOYEE" EntitySet="TBL_EMPLOYEE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_PAYME__ORDER__2BC97F7C" Association="Self.FK__TBL_PAYME__ORDER__2BC97F7C">
+            <End Role="TBL_CUST_ORDER" EntitySet="TBL_CUST_ORDER" />
+            <End Role="TBL_PAYMENT" EntitySet="TBL_PAYMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_SERVI__DURAT__1E6F845E" Association="Self.FK__TBL_SERVI__DURAT__1E6F845E">
+            <End Role="TBL_DURATION_TYPE" EntitySet="TBL_DURATION_TYPE" />
+            <End Role="TBL_SERVICES" EntitySet="TBL_SERVICES" />
+          </AssociationSet>
+          <AssociationSet Name="FK__X_SERVICE__EMP_I__3552E9B6" Association="Self.FK__X_SERVICE__EMP_I__3552E9B6">
+            <End Role="TBL_EMPLOYEE" EntitySet="TBL_EMPLOYEE" />
+            <End Role="X_SERVICE_EMPLOYEE" EntitySet="X_SERVICE_EMPLOYEE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__X_SERVICE__LOCAT__318258D2" Association="Self.FK__X_SERVICE__LOCAT__318258D2">
+            <End Role="TBL_LOCATION" EntitySet="TBL_LOCATION" />
+            <End Role="X_SERVICE_LOCATION" EntitySet="X_SERVICE_LOCATION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__X_SERVICE__SERVI__32767D0B" Association="Self.FK__X_SERVICE__SERVI__32767D0B">
+            <End Role="TBL_SERVICES" EntitySet="TBL_SERVICES" />
+            <End Role="X_SERVICE_LOCATION" EntitySet="X_SERVICE_LOCATION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__X_SERVICE__SERVI__36470DEF" Association="Self.FK__X_SERVICE__SERVI__36470DEF">
+            <End Role="TBL_SERVICES" EntitySet="TBL_SERVICES" />
+            <End Role="X_SERVICE_EMPLOYEE" EntitySet="X_SERVICE_EMPLOYEE" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EasyBookingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TBL_BUSINESS">
+          <Key>
+            <PropertyRef Name="BUSINESS_ID" />
+          </Key>
+          <Property Name="BUSINESS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BUSINESS_NAME" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="BUSINESS_ADDRESS" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="BUSINESS_TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="REG_NO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="OWNER_NAME" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="LOCATION_ID" Type="Int32" />
+          <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="MODIFIED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATED_BY_ID" Type="Int32" />
+          <Property Name="MODIFIED_BY_ID" Type="Int32" />
+          <NavigationProperty Name="TBL_LOCATION" Relationship="Self.FK__TBL_BUSIN__LOCAT__2EA5EC27" FromRole="TBL_BUSINESS" ToRole="TBL_LOCATION" />
+        </EntityType>
+        <EntityType Name="TBL_CUST_ORDER">
+          <Key>
+            <PropertyRef Name="CUST_ORDER_ID" />
+          </Key>
+          <Property Name="CUST_ORDER_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SCHEDULE_DATE" Type="DateTime" Precision="3" />
+          <Property Name="TIME_FROM" Type="Time" Precision="7" />
+          <Property Name="TIME_TO" Type="Time" Precision="7" />
+          <Property Name="CUSTOMER_ID" Type="Int32" />
+          <Property Name="SERVICE_ID" Type="Int32" />
+          <Property Name="EMP_ID" Type="Int32" />
+          <Property Name="LOCATION_ID" Type="Int32" />
+          <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="MODIFIED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATED_BY_ID" Type="Int32" />
+          <Property Name="MODIFIED_BY_ID" Type="Int32" />
+          <NavigationProperty Name="TBL_CUSTOMER" Relationship="Self.FK__TBL_CUST___CUSTO__2610A626" FromRole="TBL_CUST_ORDER" ToRole="TBL_CUSTOMER" />
+          <NavigationProperty Name="TBL_EMPLOYEE" Relationship="Self.FK__TBL_CUST___EMP_I__28ED12D1" FromRole="TBL_CUST_ORDER" ToRole="TBL_EMPLOYEE" />
+          <NavigationProperty Name="TBL_LOCATION" Relationship="Self.FK__TBL_CUST___LOCAT__27F8EE98" FromRole="TBL_CUST_ORDER" ToRole="TBL_LOCATION" />
+          <NavigationProperty Name="TBL_SERVICES" Relationship="Self.FK__TBL_CUST___SERVI__2704CA5F" FromRole="TBL_CUST_ORDER" ToRole="TBL_SERVICES" />
+          <NavigationProperty Name="TBL_PAYMENT" Relationship="Self.FK__TBL_PAYME__ORDER__2BC97F7C" FromRole="TBL_CUST_ORDER" ToRole="TBL_PAYMENT" />
+        </EntityType>
+        <EntityType Name="TBL_CUSTOMER">
+          <Key>
+            <PropertyRef Name="CUSTOMER_ID" />
+          </Key>
+          <Property Name="CUSTOMER_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CUST_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="PHONE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CUST_ADDRESS" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="MODIFIED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATED_BY_ID" Type="Int32" />
+          <Property Name="MODIFIED_BY_ID" Type="Int32" />
+          <NavigationProperty Name="TBL_CUST_ORDER" Relationship="Self.FK__TBL_CUST___CUSTO__2610A626" FromRole="TBL_CUSTOMER" ToRole="TBL_CUST_ORDER" />
+        </EntityType>
+        <EntityType Name="TBL_DURATION_TYPE">
+          <Key>
+            <PropertyRef Name="DURATION_TYPE_ID" />
+          </Key>
+          <Property Name="DURATION_TYPE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DURATION" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="MODIFIED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATED_BY_ID" Type="Int32" />
+          <Property Name="MODIFIED_BY_ID" Type="Int32" />
+          <NavigationProperty Name="TBL_SERVICES" Relationship="Self.FK__TBL_SERVI__DURAT__1E6F845E" FromRole="TBL_DURATION_TYPE" ToRole="TBL_SERVICES" />
+        </EntityType>
+        <EntityType Name="TBL_EMPLOYEE">
+          <Key>
+            <PropertyRef Name="EMP_ID" />
+          </Key>
+          <Property Name="EMP_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EMP_NAME" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="DEPARTMENT" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="DOJ" Type="DateTime" Precision="3" />
+          <Property Name="GENDER" Type="Int32" />
+          <Property Name="LOCATION_ID" Type="Int32" />
+          <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="MODIFIED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATED_BY_ID" Type="Int32" />
+          <Property Name="MODIFIED_BY_ID" Type="Int32" />
+          <NavigationProperty Name="TBL_CUST_ORDER" Relationship="Self.FK__TBL_CUST___EMP_I__28ED12D1" FromRole="TBL_EMPLOYEE" ToRole="TBL_CUST_ORDER" />
+          <NavigationProperty Name="TBL_LOCATION" Relationship="Self.FK__TBL_EMPLO__LOCAT__2334397B" FromRole="TBL_EMPLOYEE" ToRole="TBL_LOCATION" />
+          <NavigationProperty Name="X_SERVICE_EMPLOYEE" Relationship="Self.FK__X_SERVICE__EMP_I__3552E9B6" FromRole="TBL_EMPLOYEE" ToRole="X_SERVICE_EMPLOYEE" />
+        </EntityType>
+        <EntityType Name="TBL_LOCATION">
+          <Key>
+            <PropertyRef Name="LOCATION_ID" />
+          </Key>
+          <Property Name="LOCATION_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LOCATION_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="MODIFIED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATED_BY_ID" Type="Int32" />
+          <Property Name="MODIFIED_BY_ID" Type="Int32" />
+          <NavigationProperty Name="TBL_BUSINESS" Relationship="Self.FK__TBL_BUSIN__LOCAT__2EA5EC27" FromRole="TBL_LOCATION" ToRole="TBL_BUSINESS" />
+          <NavigationProperty Name="TBL_CUST_ORDER" Relationship="Self.FK__TBL_CUST___LOCAT__27F8EE98" FromRole="TBL_LOCATION" ToRole="TBL_CUST_ORDER" />
+          <NavigationProperty Name="TBL_EMPLOYEE" Relationship="Self.FK__TBL_EMPLO__LOCAT__2334397B" FromRole="TBL_LOCATION" ToRole="TBL_EMPLOYEE" />
+          <NavigationProperty Name="X_SERVICE_LOCATION" Relationship="Self.FK__X_SERVICE__LOCAT__318258D2" FromRole="TBL_LOCATION" ToRole="X_SERVICE_LOCATION" />
+        </EntityType>
+        <EntityType Name="TBL_PAYMENT">
+          <Key>
+            <PropertyRef Name="PAYMENT_ID" />
+          </Key>
+          <Property Name="PAYMENT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ORDER_ID" Type="Int32" />
+          <Property Name="PAY_DETAILS" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="MODIFIED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATED_BY_ID" Type="Int32" />
+          <Property Name="MODIFIED_BY_ID" Type="Int32" />
+          <NavigationProperty Name="TBL_CUST_ORDER" Relationship="Self.FK__TBL_PAYME__ORDER__2BC97F7C" FromRole="TBL_PAYMENT" ToRole="TBL_CUST_ORDER" />
+        </EntityType>
+        <EntityType Name="TBL_SERVICE_CATEGORIES">
+          <Key>
+            <PropertyRef Name="SERVICE_CATEGORY_ID" />
+          </Key>
+          <Property Name="SERVICE_CATEGORY_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CATEGORY_TITLE" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="MODIFIED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATED_BY_ID" Type="Int32" />
+          <Property Name="MODIFIED_BY_ID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TBL_SERVICES">
+          <Key>
+            <PropertyRef Name="SERVICE_ID" />
+          </Key>
+          <Property Name="SERVICE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SERVICE_NAME" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="RATE_PER_UNIT" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="QUANTITY" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="DURATION" Type="Int32" />
+          <Property Name="DURATION_TYPE" Type="Int32" />
+          <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="MODIFIED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATED_BY_ID" Type="Int32" />
+          <Property Name="MODIFIED_BY_ID" Type="Int32" />
+          <NavigationProperty Name="TBL_CUST_ORDER" Relationship="Self.FK__TBL_CUST___SERVI__2704CA5F" FromRole="TBL_SERVICES" ToRole="TBL_CUST_ORDER" />
+          <NavigationProperty Name="TBL_DURATION_TYPE" Relationship="Self.FK__TBL_SERVI__DURAT__1E6F845E" FromRole="TBL_SERVICES" ToRole="TBL_DURATION_TYPE" />
+          <NavigationProperty Name="X_SERVICE_LOCATION" Relationship="Self.FK__X_SERVICE__SERVI__32767D0B" FromRole="TBL_SERVICES" ToRole="X_SERVICE_LOCATION" />
+          <NavigationProperty Name="X_SERVICE_EMPLOYEE" Relationship="Self.FK__X_SERVICE__SERVI__36470DEF" FromRole="TBL_SERVICES" ToRole="X_SERVICE_EMPLOYEE" />
+        </EntityType>
+        <EntityType Name="X_SERVICE_EMPLOYEE">
+          <Key>
+            <PropertyRef Name="X_SERVICE_EMP_ID" />
+          </Key>
+          <Property Name="X_SERVICE_EMP_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SERVICE_ID" Type="Int32" />
+          <Property Name="EMP_ID" Type="Int32" />
+          <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="MODIFIED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATED_BY_ID" Type="Int32" />
+          <Property Name="MODIFIED_BY_ID" Type="Int32" />
+          <NavigationProperty Name="TBL_EMPLOYEE" Relationship="Self.FK__X_SERVICE__EMP_I__3552E9B6" FromRole="X_SERVICE_EMPLOYEE" ToRole="TBL_EMPLOYEE" />
+          <NavigationProperty Name="TBL_SERVICES" Relationship="Self.FK__X_SERVICE__SERVI__36470DEF" FromRole="X_SERVICE_EMPLOYEE" ToRole="TBL_SERVICES" />
+        </EntityType>
+        <EntityType Name="X_SERVICE_LOCATION">
+          <Key>
+            <PropertyRef Name="X_SERVICE_LOCATION_ID" />
+          </Key>
+          <Property Name="X_SERVICE_LOCATION_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LOCATION_ID" Type="Int32" />
+          <Property Name="SERVICE_ID" Type="Int32" />
+          <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="MODIFIED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATED_BY_ID" Type="Int32" />
+          <Property Name="MODIFIED_BY_ID" Type="Int32" />
+          <NavigationProperty Name="TBL_LOCATION" Relationship="Self.FK__X_SERVICE__LOCAT__318258D2" FromRole="X_SERVICE_LOCATION" ToRole="TBL_LOCATION" />
+          <NavigationProperty Name="TBL_SERVICES" Relationship="Self.FK__X_SERVICE__SERVI__32767D0B" FromRole="X_SERVICE_LOCATION" ToRole="TBL_SERVICES" />
+        </EntityType>
+        <Association Name="FK__TBL_BUSIN__LOCAT__2EA5EC27">
+          <End Role="TBL_LOCATION" Type="Self.TBL_LOCATION" Multiplicity="0..1" />
+          <End Role="TBL_BUSINESS" Type="Self.TBL_BUSINESS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_LOCATION">
+              <PropertyRef Name="LOCATION_ID" />
+            </Principal>
+            <Dependent Role="TBL_BUSINESS">
+              <PropertyRef Name="LOCATION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_CUST___CUSTO__2610A626">
+          <End Role="TBL_CUSTOMER" Type="Self.TBL_CUSTOMER" Multiplicity="0..1" />
+          <End Role="TBL_CUST_ORDER" Type="Self.TBL_CUST_ORDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_CUSTOMER">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Principal>
+            <Dependent Role="TBL_CUST_ORDER">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_CUST___EMP_I__28ED12D1">
+          <End Role="TBL_EMPLOYEE" Type="Self.TBL_EMPLOYEE" Multiplicity="0..1" />
+          <End Role="TBL_CUST_ORDER" Type="Self.TBL_CUST_ORDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_EMPLOYEE">
+              <PropertyRef Name="EMP_ID" />
+            </Principal>
+            <Dependent Role="TBL_CUST_ORDER">
+              <PropertyRef Name="EMP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_CUST___LOCAT__27F8EE98">
+          <End Role="TBL_LOCATION" Type="Self.TBL_LOCATION" Multiplicity="0..1" />
+          <End Role="TBL_CUST_ORDER" Type="Self.TBL_CUST_ORDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_LOCATION">
+              <PropertyRef Name="LOCATION_ID" />
+            </Principal>
+            <Dependent Role="TBL_CUST_ORDER">
+              <PropertyRef Name="LOCATION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_CUST___SERVI__2704CA5F">
+          <End Role="TBL_SERVICES" Type="Self.TBL_SERVICES" Multiplicity="0..1" />
+          <End Role="TBL_CUST_ORDER" Type="Self.TBL_CUST_ORDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_SERVICES">
+              <PropertyRef Name="SERVICE_ID" />
+            </Principal>
+            <Dependent Role="TBL_CUST_ORDER">
+              <PropertyRef Name="SERVICE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_PAYME__ORDER__2BC97F7C">
+          <End Role="TBL_CUST_ORDER" Type="Self.TBL_CUST_ORDER" Multiplicity="0..1" />
+          <End Role="TBL_PAYMENT" Type="Self.TBL_PAYMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_CUST_ORDER">
+              <PropertyRef Name="CUST_ORDER_ID" />
+            </Principal>
+            <Dependent Role="TBL_PAYMENT">
+              <PropertyRef Name="ORDER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_SERVI__DURAT__1E6F845E">
+          <End Role="TBL_DURATION_TYPE" Type="Self.TBL_DURATION_TYPE" Multiplicity="0..1" />
+          <End Role="TBL_SERVICES" Type="Self.TBL_SERVICES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_DURATION_TYPE">
+              <PropertyRef Name="DURATION_TYPE_ID" />
+            </Principal>
+            <Dependent Role="TBL_SERVICES">
+              <PropertyRef Name="DURATION_TYPE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_EMPLO__LOCAT__2334397B">
+          <End Role="TBL_LOCATION" Type="Self.TBL_LOCATION" Multiplicity="0..1" />
+          <End Role="TBL_EMPLOYEE" Type="Self.TBL_EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_LOCATION">
+              <PropertyRef Name="LOCATION_ID" />
+            </Principal>
+            <Dependent Role="TBL_EMPLOYEE">
+              <PropertyRef Name="LOCATION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__X_SERVICE__EMP_I__3552E9B6">
+          <End Role="TBL_EMPLOYEE" Type="Self.TBL_EMPLOYEE" Multiplicity="0..1" />
+          <End Role="X_SERVICE_EMPLOYEE" Type="Self.X_SERVICE_EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_EMPLOYEE">
+              <PropertyRef Name="EMP_ID" />
+            </Principal>
+            <Dependent Role="X_SERVICE_EMPLOYEE">
+              <PropertyRef Name="EMP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__X_SERVICE__LOCAT__318258D2">
+          <End Role="TBL_LOCATION" Type="Self.TBL_LOCATION" Multiplicity="0..1" />
+          <End Role="X_SERVICE_LOCATION" Type="Self.X_SERVICE_LOCATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_LOCATION">
+              <PropertyRef Name="LOCATION_ID" />
+            </Principal>
+            <Dependent Role="X_SERVICE_LOCATION">
+              <PropertyRef Name="LOCATION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__X_SERVICE__SERVI__32767D0B">
+          <End Role="TBL_SERVICES" Type="Self.TBL_SERVICES" Multiplicity="0..1" />
+          <End Role="X_SERVICE_LOCATION" Type="Self.X_SERVICE_LOCATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_SERVICES">
+              <PropertyRef Name="SERVICE_ID" />
+            </Principal>
+            <Dependent Role="X_SERVICE_LOCATION">
+              <PropertyRef Name="SERVICE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__X_SERVICE__SERVI__36470DEF">
+          <End Role="TBL_SERVICES" Type="Self.TBL_SERVICES" Multiplicity="0..1" />
+          <End Role="X_SERVICE_EMPLOYEE" Type="Self.X_SERVICE_EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_SERVICES">
+              <PropertyRef Name="SERVICE_ID" />
+            </Principal>
+            <Dependent Role="X_SERVICE_EMPLOYEE">
+              <PropertyRef Name="SERVICE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EasyBookingEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="TBL_BUSINESS" EntityType="Self.TBL_BUSINESS" />
+          <EntitySet Name="TBL_CUST_ORDER" EntityType="Self.TBL_CUST_ORDER" />
+          <EntitySet Name="TBL_CUSTOMER" EntityType="Self.TBL_CUSTOMER" />
+          <EntitySet Name="TBL_DURATION_TYPE" EntityType="Self.TBL_DURATION_TYPE" />
+          <EntitySet Name="TBL_EMPLOYEE" EntityType="Self.TBL_EMPLOYEE" />
+          <EntitySet Name="TBL_LOCATION" EntityType="Self.TBL_LOCATION" />
+          <EntitySet Name="TBL_PAYMENT" EntityType="Self.TBL_PAYMENT" />
+          <EntitySet Name="TBL_SERVICE_CATEGORIES" EntityType="Self.TBL_SERVICE_CATEGORIES" />
+          <EntitySet Name="TBL_SERVICES" EntityType="Self.TBL_SERVICES" />
+          <EntitySet Name="X_SERVICE_EMPLOYEE" EntityType="Self.X_SERVICE_EMPLOYEE" />
+          <EntitySet Name="X_SERVICE_LOCATION" EntityType="Self.X_SERVICE_LOCATION" />
+          <AssociationSet Name="FK__TBL_BUSIN__LOCAT__2EA5EC27" Association="Self.FK__TBL_BUSIN__LOCAT__2EA5EC27">
+            <End Role="TBL_LOCATION" EntitySet="TBL_LOCATION" />
+            <End Role="TBL_BUSINESS" EntitySet="TBL_BUSINESS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_CUST___CUSTO__2610A626" Association="Self.FK__TBL_CUST___CUSTO__2610A626">
+            <End Role="TBL_CUSTOMER" EntitySet="TBL_CUSTOMER" />
+            <End Role="TBL_CUST_ORDER" EntitySet="TBL_CUST_ORDER" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_CUST___EMP_I__28ED12D1" Association="Self.FK__TBL_CUST___EMP_I__28ED12D1">
+            <End Role="TBL_EMPLOYEE" EntitySet="TBL_EMPLOYEE" />
+            <End Role="TBL_CUST_ORDER" EntitySet="TBL_CUST_ORDER" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_CUST___LOCAT__27F8EE98" Association="Self.FK__TBL_CUST___LOCAT__27F8EE98">
+            <End Role="TBL_LOCATION" EntitySet="TBL_LOCATION" />
+            <End Role="TBL_CUST_ORDER" EntitySet="TBL_CUST_ORDER" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_CUST___SERVI__2704CA5F" Association="Self.FK__TBL_CUST___SERVI__2704CA5F">
+            <End Role="TBL_SERVICES" EntitySet="TBL_SERVICES" />
+            <End Role="TBL_CUST_ORDER" EntitySet="TBL_CUST_ORDER" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_PAYME__ORDER__2BC97F7C" Association="Self.FK__TBL_PAYME__ORDER__2BC97F7C">
+            <End Role="TBL_CUST_ORDER" EntitySet="TBL_CUST_ORDER" />
+            <End Role="TBL_PAYMENT" EntitySet="TBL_PAYMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_SERVI__DURAT__1E6F845E" Association="Self.FK__TBL_SERVI__DURAT__1E6F845E">
+            <End Role="TBL_DURATION_TYPE" EntitySet="TBL_DURATION_TYPE" />
+            <End Role="TBL_SERVICES" EntitySet="TBL_SERVICES" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_EMPLO__LOCAT__2334397B" Association="Self.FK__TBL_EMPLO__LOCAT__2334397B">
+            <End Role="TBL_LOCATION" EntitySet="TBL_LOCATION" />
+            <End Role="TBL_EMPLOYEE" EntitySet="TBL_EMPLOYEE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__X_SERVICE__EMP_I__3552E9B6" Association="Self.FK__X_SERVICE__EMP_I__3552E9B6">
+            <End Role="TBL_EMPLOYEE" EntitySet="TBL_EMPLOYEE" />
+            <End Role="X_SERVICE_EMPLOYEE" EntitySet="X_SERVICE_EMPLOYEE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__X_SERVICE__LOCAT__318258D2" Association="Self.FK__X_SERVICE__LOCAT__318258D2">
+            <End Role="TBL_LOCATION" EntitySet="TBL_LOCATION" />
+            <End Role="X_SERVICE_LOCATION" EntitySet="X_SERVICE_LOCATION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__X_SERVICE__SERVI__32767D0B" Association="Self.FK__X_SERVICE__SERVI__32767D0B">
+            <End Role="TBL_SERVICES" EntitySet="TBL_SERVICES" />
+            <End Role="X_SERVICE_LOCATION" EntitySet="X_SERVICE_LOCATION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__X_SERVICE__SERVI__36470DEF" Association="Self.FK__X_SERVICE__SERVI__36470DEF">
+            <End Role="TBL_SERVICES" EntitySet="TBL_SERVICES" />
+            <End Role="X_SERVICE_EMPLOYEE" EntitySet="X_SERVICE_EMPLOYEE" />
+          </AssociationSet>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(EasyBookingModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(EasyBookingModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <FunctionImport Name="USP_INSERT_BUSINESS">
+            <Parameter Name="BUSINESS_NAME" Mode="In" Type="String" />
+            <Parameter Name="BUSINESS_ADDRESS" Mode="In" Type="String" />
+            <Parameter Name="BUSINESS_TYPE" Mode="In" Type="String" />
+            <Parameter Name="REG_NO" Mode="In" Type="String" />
+            <Parameter Name="OWNER_NAME" Mode="In" Type="String" />
+            <Parameter Name="LOCATION_ID" Mode="In" Type="Int32" />
+            <Parameter Name="CREATED_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="MODIFIED_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="CREATED_BY_ID" Mode="In" Type="Int32" />
+            <Parameter Name="MODIFIED_BY_ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="USP_INSERT_CUST">
+            <Parameter Name="CUST_NAME" Mode="In" Type="String" />
+            <Parameter Name="EMAIL" Mode="In" Type="String" />
+            <Parameter Name="PHONE" Mode="In" Type="String" />
+            <Parameter Name="CUST_ADDRESS" Mode="In" Type="String" />
+            <Parameter Name="CREATED_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="MODIFIED_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="CREATED_BY_ID" Mode="In" Type="Int32" />
+            <Parameter Name="MODIFIED_BY_ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="USP_INSERT_CUST_ORDERS">
+            <Parameter Name="SCHEDULE_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="TIME_FROM" Mode="In" Type="Time" />
+            <Parameter Name="TIME_TO" Mode="In" Type="Time" />
+            <Parameter Name="CUSTOMER_ID" Mode="In" Type="Int32" />
+            <Parameter Name="SERVICE_ID" Mode="In" Type="Int32" />
+            <Parameter Name="EMP_ID" Mode="In" Type="Int32" />
+            <Parameter Name="LOCATION_ID" Mode="In" Type="Int32" />
+            <Parameter Name="CREATED_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="MODIFIED_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="CREATED_BY_ID" Mode="In" Type="Int32" />
+            <Parameter Name="MODIFIED_BY_ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="USP_INSERT_EMPLOYEE">
+            <Parameter Name="EMP_NAME" Mode="In" Type="String" />
+            <Parameter Name="DEPARTMENT" Mode="In" Type="String" />
+            <Parameter Name="DOJ" Mode="In" Type="DateTime" />
+            <Parameter Name="GENDER" Mode="In" Type="Int32" />
+            <Parameter Name="LOCATION_ID" Mode="In" Type="Int32" />
+            <Parameter Name="CREATED_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="MODIFIED_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="CREATED_BY_ID" Mode="In" Type="Int32" />
+            <Parameter Name="MODIFIED_BY_ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="USP_INSERT_LOCATION">
+            <Parameter Name="LOCATION_NAME" Mode="In" Type="String" />
+            <Parameter Name="CREATED_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="MODIFIED_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="CREATED_BY_ID" Mode="In" Type="Int32" />
+            <Parameter Name="MODIFIED_BY_ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="USP_INSERT_PAYMENT">
+            <Parameter Name="ORDER_ID" Mode="In" Type="Int32" />
+            <Parameter Name="PAY_DETAILS" Mode="In" Type="Int32" />
+            <Parameter Name="CREATED_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="MODIFIED_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="CREATED_BY_ID" Mode="In" Type="Int32" />
+            <Parameter Name="MODIFIED_BY_ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="USP_INSERT_SERVICES">
+            <Parameter Name="SERVICE_NAME" Mode="In" Type="String" />
+            <Parameter Name="RATE_PER_UNIT" Mode="In" Type="Decimal" />
+            <Parameter Name="QUANTITY" Mode="In" Type="Decimal" />
+            <Parameter Name="DURATION" Mode="In" Type="Int32" />
+            <Parameter Name="DURATION_TYPE" Mode="In" Type="Int32" />
+            <Parameter Name="CREATED_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="MODIFIED_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="CREATED_BY_ID" Mode="In" Type="Int32" />
+            <Parameter Name="MODIFIED_BY_ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="USP_INSERT_X_SERVICE_EMPLOYEE">
+            <Parameter Name="SERVICE_ID" Mode="In" Type="Int32" />
+            <Parameter Name="EMP_ID" Mode="In" Type="Int32" />
+            <Parameter Name="CREATED_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="MODIFIED_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="CREATED_BY_ID" Mode="In" Type="Int32" />
+            <Parameter Name="MODIFIED_BY_ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="USP_INSERT_X_SERVICE_LOCATION">
+            <Parameter Name="LOCATION_ID" Mode="In" Type="Int32" />
+            <Parameter Name="SERVICE_ID" Mode="In" Type="Int32" />
+            <Parameter Name="CREATED_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="MODIFIED_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="CREATED_BY_ID" Mode="In" Type="Int32" />
+            <Parameter Name="MODIFIED_BY_ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EasyBookingModelStoreContainer" CdmEntityContainer="EasyBookingEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="EasyBookingModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_BUSINESS">
+            <EntityTypeMapping TypeName="EasyBookingModel.TBL_BUSINESS">
+              <MappingFragment StoreEntitySet="TBL_BUSINESS">
+                <ScalarProperty Name="BUSINESS_ID" ColumnName="BUSINESS_ID" />
+                <ScalarProperty Name="BUSINESS_NAME" ColumnName="BUSINESS_NAME" />
+                <ScalarProperty Name="BUSINESS_ADDRESS" ColumnName="BUSINESS_ADDRESS" />
+                <ScalarProperty Name="BUSINESS_TYPE" ColumnName="BUSINESS_TYPE" />
+                <ScalarProperty Name="REG_NO" ColumnName="REG_NO" />
+                <ScalarProperty Name="OWNER_NAME" ColumnName="OWNER_NAME" />
+                <ScalarProperty Name="LOCATION_ID" ColumnName="LOCATION_ID" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="MODIFIED_DATE" ColumnName="MODIFIED_DATE" />
+                <ScalarProperty Name="CREATED_BY_ID" ColumnName="CREATED_BY_ID" />
+                <ScalarProperty Name="MODIFIED_BY_ID" ColumnName="MODIFIED_BY_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_CUST_ORDER">
+            <EntityTypeMapping TypeName="EasyBookingModel.TBL_CUST_ORDER">
+              <MappingFragment StoreEntitySet="TBL_CUST_ORDER">
+                <ScalarProperty Name="CUST_ORDER_ID" ColumnName="CUST_ORDER_ID" />
+                <ScalarProperty Name="SCHEDULE_DATE" ColumnName="SCHEDULE_DATE" />
+                <ScalarProperty Name="TIME_FROM" ColumnName="TIME_FROM" />
+                <ScalarProperty Name="TIME_TO" ColumnName="TIME_TO" />
+                <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+                <ScalarProperty Name="SERVICE_ID" ColumnName="SERVICE_ID" />
+                <ScalarProperty Name="EMP_ID" ColumnName="EMP_ID" />
+                <ScalarProperty Name="LOCATION_ID" ColumnName="LOCATION_ID" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="MODIFIED_DATE" ColumnName="MODIFIED_DATE" />
+                <ScalarProperty Name="CREATED_BY_ID" ColumnName="CREATED_BY_ID" />
+                <ScalarProperty Name="MODIFIED_BY_ID" ColumnName="MODIFIED_BY_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_CUSTOMER">
+            <EntityTypeMapping TypeName="EasyBookingModel.TBL_CUSTOMER">
+              <MappingFragment StoreEntitySet="TBL_CUSTOMER">
+                <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+                <ScalarProperty Name="CUST_NAME" ColumnName="CUST_NAME" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+                <ScalarProperty Name="CUST_ADDRESS" ColumnName="CUST_ADDRESS" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="MODIFIED_DATE" ColumnName="MODIFIED_DATE" />
+                <ScalarProperty Name="CREATED_BY_ID" ColumnName="CREATED_BY_ID" />
+                <ScalarProperty Name="MODIFIED_BY_ID" ColumnName="MODIFIED_BY_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_DURATION_TYPE">
+            <EntityTypeMapping TypeName="EasyBookingModel.TBL_DURATION_TYPE">
+              <MappingFragment StoreEntitySet="TBL_DURATION_TYPE">
+                <ScalarProperty Name="DURATION_TYPE_ID" ColumnName="DURATION_TYPE_ID" />
+                <ScalarProperty Name="DURATION" ColumnName="DURATION" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="MODIFIED_DATE" ColumnName="MODIFIED_DATE" />
+                <ScalarProperty Name="CREATED_BY_ID" ColumnName="CREATED_BY_ID" />
+                <ScalarProperty Name="MODIFIED_BY_ID" ColumnName="MODIFIED_BY_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_EMPLOYEE">
+            <EntityTypeMapping TypeName="EasyBookingModel.TBL_EMPLOYEE">
+              <MappingFragment StoreEntitySet="TBL_EMPLOYEE">
+                <ScalarProperty Name="EMP_ID" ColumnName="EMP_ID" />
+                <ScalarProperty Name="EMP_NAME" ColumnName="EMP_NAME" />
+                <ScalarProperty Name="DEPARTMENT" ColumnName="DEPARTMENT" />
+                <ScalarProperty Name="DOJ" ColumnName="DOJ" />
+                <ScalarProperty Name="GENDER" ColumnName="GENDER" />
+                <ScalarProperty Name="LOCATION_ID" ColumnName="LOCATION_ID" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="MODIFIED_DATE" ColumnName="MODIFIED_DATE" />
+                <ScalarProperty Name="CREATED_BY_ID" ColumnName="CREATED_BY_ID" />
+                <ScalarProperty Name="MODIFIED_BY_ID" ColumnName="MODIFIED_BY_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_LOCATION">
+            <EntityTypeMapping TypeName="EasyBookingModel.TBL_LOCATION">
+              <MappingFragment StoreEntitySet="TBL_LOCATION">
+                <ScalarProperty Name="LOCATION_ID" ColumnName="LOCATION_ID" />
+                <ScalarProperty Name="LOCATION_NAME" ColumnName="LOCATION_NAME" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="MODIFIED_DATE" ColumnName="MODIFIED_DATE" />
+                <ScalarProperty Name="CREATED_BY_ID" ColumnName="CREATED_BY_ID" />
+                <ScalarProperty Name="MODIFIED_BY_ID" ColumnName="MODIFIED_BY_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_PAYMENT">
+            <EntityTypeMapping TypeName="EasyBookingModel.TBL_PAYMENT">
+              <MappingFragment StoreEntitySet="TBL_PAYMENT">
+                <ScalarProperty Name="PAYMENT_ID" ColumnName="PAYMENT_ID" />
+                <ScalarProperty Name="ORDER_ID" ColumnName="ORDER_ID" />
+                <ScalarProperty Name="PAY_DETAILS" ColumnName="PAY_DETAILS" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="MODIFIED_DATE" ColumnName="MODIFIED_DATE" />
+                <ScalarProperty Name="CREATED_BY_ID" ColumnName="CREATED_BY_ID" />
+                <ScalarProperty Name="MODIFIED_BY_ID" ColumnName="MODIFIED_BY_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_SERVICE_CATEGORIES">
+            <EntityTypeMapping TypeName="EasyBookingModel.TBL_SERVICE_CATEGORIES">
+              <MappingFragment StoreEntitySet="TBL_SERVICE_CATEGORIES">
+                <ScalarProperty Name="SERVICE_CATEGORY_ID" ColumnName="SERVICE_CATEGORY_ID" />
+                <ScalarProperty Name="CATEGORY_TITLE" ColumnName="CATEGORY_TITLE" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="MODIFIED_DATE" ColumnName="MODIFIED_DATE" />
+                <ScalarProperty Name="CREATED_BY_ID" ColumnName="CREATED_BY_ID" />
+                <ScalarProperty Name="MODIFIED_BY_ID" ColumnName="MODIFIED_BY_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_SERVICES">
+            <EntityTypeMapping TypeName="EasyBookingModel.TBL_SERVICES">
+              <MappingFragment StoreEntitySet="TBL_SERVICES">
+                <ScalarProperty Name="SERVICE_ID" ColumnName="SERVICE_ID" />
+                <ScalarProperty Name="SERVICE_NAME" ColumnName="SERVICE_NAME" />
+                <ScalarProperty Name="RATE_PER_UNIT" ColumnName="RATE_PER_UNIT" />
+                <ScalarProperty Name="QUANTITY" ColumnName="QUANTITY" />
+                <ScalarProperty Name="DURATION" ColumnName="DURATION" />
+                <ScalarProperty Name="DURATION_TYPE" ColumnName="DURATION_TYPE" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="MODIFIED_DATE" ColumnName="MODIFIED_DATE" />
+                <ScalarProperty Name="CREATED_BY_ID" ColumnName="CREATED_BY_ID" />
+                <ScalarProperty Name="MODIFIED_BY_ID" ColumnName="MODIFIED_BY_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="X_SERVICE_EMPLOYEE">
+            <EntityTypeMapping TypeName="EasyBookingModel.X_SERVICE_EMPLOYEE">
+              <MappingFragment StoreEntitySet="X_SERVICE_EMPLOYEE">
+                <ScalarProperty Name="X_SERVICE_EMP_ID" ColumnName="X_SERVICE_EMP_ID" />
+                <ScalarProperty Name="SERVICE_ID" ColumnName="SERVICE_ID" />
+                <ScalarProperty Name="EMP_ID" ColumnName="EMP_ID" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="MODIFIED_DATE" ColumnName="MODIFIED_DATE" />
+                <ScalarProperty Name="CREATED_BY_ID" ColumnName="CREATED_BY_ID" />
+                <ScalarProperty Name="MODIFIED_BY_ID" ColumnName="MODIFIED_BY_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="X_SERVICE_LOCATION">
+            <EntityTypeMapping TypeName="EasyBookingModel.X_SERVICE_LOCATION">
+              <MappingFragment StoreEntitySet="X_SERVICE_LOCATION">
+                <ScalarProperty Name="X_SERVICE_LOCATION_ID" ColumnName="X_SERVICE_LOCATION_ID" />
+                <ScalarProperty Name="LOCATION_ID" ColumnName="LOCATION_ID" />
+                <ScalarProperty Name="SERVICE_ID" ColumnName="SERVICE_ID" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="MODIFIED_DATE" ColumnName="MODIFIED_DATE" />
+                <ScalarProperty Name="CREATED_BY_ID" ColumnName="CREATED_BY_ID" />
+                <ScalarProperty Name="MODIFIED_BY_ID" ColumnName="MODIFIED_BY_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="EasyBookingModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="EasyBookingModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="EasyBookingModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="EasyBookingModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EasyBookingModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="EasyBookingModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EasyBookingModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="EasyBookingModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="EasyBookingModel.Store.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="USP_INSERT_BUSINESS" FunctionName="EasyBookingModel.Store.USP_INSERT_BUSINESS" />
+          <FunctionImportMapping FunctionImportName="USP_INSERT_CUST" FunctionName="EasyBookingModel.Store.USP_INSERT_CUST" />
+          <FunctionImportMapping FunctionImportName="USP_INSERT_CUST_ORDERS" FunctionName="EasyBookingModel.Store.USP_INSERT_CUST_ORDERS" />
+          <FunctionImportMapping FunctionImportName="USP_INSERT_EMPLOYEE" FunctionName="EasyBookingModel.Store.USP_INSERT_EMPLOYEE" />
+          <FunctionImportMapping FunctionImportName="USP_INSERT_LOCATION" FunctionName="EasyBookingModel.Store.USP_INSERT_LOCATION" />
+          <FunctionImportMapping FunctionImportName="USP_INSERT_PAYMENT" FunctionName="EasyBookingModel.Store.USP_INSERT_PAYMENT" />
+          <FunctionImportMapping FunctionImportName="USP_INSERT_SERVICES" FunctionName="EasyBookingModel.Store.USP_INSERT_SERVICES" />
+          <FunctionImportMapping FunctionImportName="USP_INSERT_X_SERVICE_EMPLOYEE" FunctionName="EasyBookingModel.Store.USP_INSERT_X_SERVICE_EMPLOYEE" />
+          <FunctionImportMapping FunctionImportName="USP_INSERT_X_SERVICE_LOCATION" FunctionName="EasyBookingModel.Store.USP_INSERT_X_SERVICE_LOCATION" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
